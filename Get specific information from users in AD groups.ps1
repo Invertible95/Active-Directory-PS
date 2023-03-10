@@ -11,3 +11,8 @@ Get-ADGroupMember -Identity $ADGroup -Recursive |
 Get-ADUser -Property * | Select-Object Name, Department, Office, Title, EmailAddress |
 
 Export-Csv -Path $Out -Delimiter ";" -Encoding UTF8 
+
+
+##Disclaimer##
+# Please test scripts found online in a test setting before taking it to production
+# For any questions you might have, feel free to contact me
