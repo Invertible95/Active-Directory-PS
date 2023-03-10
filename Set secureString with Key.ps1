@@ -1,3 +1,12 @@
+# This script is very useful in a security aspect.
+# Lets say your AD has an automatic creation of mailboxes for new employees
+# You want to make the workflow as safe as possible, to make it hard to highjack the service account used
+# We first create a secure Key defined as $sKey, and then set the password ($PW).
+# We then set up a workflow by storing the password keys on a secure server
+# We then create an SA and give it accessrights to our folder storing the PW. 
+# Third part is the script you use in the automatic creation of mailbox
+# We make the SA fetch the SharedPW and AES keys, convert it to securestring and this will be used to connect to your EXO eniornment for creation
+
 
 # EXO = Exchange Online
 # SA = Service Account
