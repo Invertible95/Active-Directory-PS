@@ -6,3 +6,8 @@ $CopyFrom = Read-host -Prompt "Enter user to copy from"
 $CopyTo = Read-host -Prompt "Enter user to copy to"
 
 Get-ADUser -Identity $CopyFrom -Properties memberof | Select-Object -ExpandProperty memberof |  Add-ADGroupMember -Members $CopyTo
+
+
+##Disclaimer##
+# Please test scripts found online in a test setting before taking it to production
+# For any questions you might have, feel free to contact me
