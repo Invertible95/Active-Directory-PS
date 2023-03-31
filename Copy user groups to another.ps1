@@ -8,7 +8,7 @@ function CopyADGroups {
     Get-ADUser -Identity $CopyFrom -Properties memberof | Select-Object -ExpandProperty memberof |  Add-ADGroupMember -Members $CopyTo
 }
 
-
+CopyADGroups
 
 ##Disclaimer##
 # Please test scripts found online in a test setting before taking it to production

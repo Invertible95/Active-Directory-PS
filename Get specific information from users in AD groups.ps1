@@ -3,14 +3,18 @@
 # The script also exports the information to a .csv file.
 # If you don't want the file exported you can put a # before the last pipe
 
-$Out = "Enter path for storing Awesometest.csv"
-$ADGroup = "Enter name of AD group"
+function ADUserInformation {
+    $Out = "Enter path for storing Awesometest.csv"
+    $ADGroup = "Enter name of AD group"
 
-Get-ADGroupMember -Identity $ADGroup -Recursive | 
+    Get-ADGroupMember -Identity $ADGroup -Recursive | 
 
-Get-ADUser -Property * | Select-Object Name, Department, Office, Title, EmailAddress |
+    Get-ADUser -Property * | Select-Object Name, Department, Office, Title, EmailAddress |
 
-Export-Csv -Path $Out -Delimiter ";" -Encoding UTF8 
+    Export-Csv -Path $Out -Delimiter ";" -Encoding UTF8 
+}
+ADUserInformation
+
 
 
 ##Disclaimer##
