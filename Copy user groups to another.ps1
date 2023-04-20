@@ -5,10 +5,13 @@ function CopyADGroups {
     $CopyFrom = Read-host -Prompt "Enter user to copy from"
     $CopyTo = Read-host -Prompt "Enter user to copy to"
     
-    Get-ADUser -Identity $CopyFrom -Properties memberof | Select-Object -ExpandProperty memberof |  Add-ADGroupMember -Members $CopyTo
+    Get-QADUser -Identity $CopyFrom -Properties memberof | Select-Object -ExpandProperty memberof |  Add-QADGroupMember -Member $CopyTo -Proxy
 }
 
 CopyADGroups
+
+## QADUser is used because I run Active Roles most of the time, this makes it appear in change history on object.
+
 
 ##Disclaimer##
 # Please test scripts found online in a test setting before taking it to production
