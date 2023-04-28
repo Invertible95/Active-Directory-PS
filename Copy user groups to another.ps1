@@ -5,7 +5,7 @@ function CopyADGroups {
     $CopyFrom = Read-host -Prompt "Enter user to copy from"
     $CopyTo = Read-host -Prompt "Enter user to copy to"
     
-    Get-QADUser -Identity $CopyFrom -Properties memberof | Select-Object -ExpandProperty memberof |  Add-QADGroupMember -Member $CopyTo -Proxy
+    Get-QADUser -Identity $CopyFrom | Select-Object memberof |  Add-QADGroupMember -Member $CopyTo -Proxy
 }
 
 CopyADGroups
